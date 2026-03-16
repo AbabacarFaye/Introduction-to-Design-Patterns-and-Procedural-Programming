@@ -1,0 +1,7 @@
+During this exercise, the main challenge I faced was transforming the procedural implementation into a structured design using a design pattern. In the procedural version, the shopping cart was implemented using global variables and independent functions. While this approach was simple and easy to understand, it quickly became clear that it could lead to problems as the program grows. For example, global variables can be modified from anywhere in the program, which can create unexpected behavior and make debugging more difficult.
+
+When refactoring the code using the Module Pattern, the biggest challenge was understanding how closures work in JavaScript and how they allow data to remain private inside a function. By encapsulating the cart data within the module, I was able to protect it from direct access and expose only the necessary operations such as adding, removing, and viewing items.
+
+Using the design pattern significantly improved the structure of the code. The module organizes all related cart functionality in one place and prevents pollution of the global scope. This makes the system easier to maintain, extend, and test.
+
+Design patterns are particularly useful in larger applications where code organization and scalability are important. While procedural programming is sufficient for small scripts or simple tasks, design patterns provide a more robust and maintainable architecture for complex systems.
