@@ -1,36 +1,47 @@
-let cart = []
+// Global cart variable
+let cart = [];
 
-function addItem(name, price) {
-  cart.push({ name, price })
+// Add item to cart
+function addItem(name, quantity, price) {
+  cart.push({
+    name: name,
+    quantity: quantity,
+    price: price
+  });
 }
 
-function removeItem(name) {
-  cart = cart.filter(item => item.name !== name)
-}
+// View cart items
+function viewCart() {
+  let total = 0;
 
-function getTotal() {
-  let total = 0
-  for (let item of cart) {
-    total += item.price
-  }
-  return total
-}
+  console.log("Cart:");
 
-function displayCart() {
-  console.log("Cart items:")
   cart.forEach(item => {
-    console.log(`${item.name} - $${item.price}`)
-  })
+    let itemTotal = item.quantity * item.price;
+    total += itemTotal;
+
+    console.log(`${item.name} (x${item.quantity}) - ${itemTotal.toFixed(2)} TND`);
+  });
+
+  console.log(`Total: ${total.toFixed(2)} TND`);
 }
 
-addItem("Laptop", 1000)
-addItem("Mouse", 50)
-addItem("Keyboard", 80)
+// Remove item by name
+function removeItem(name) {
+  cart = cart.filter(item => item.name !== name);
+}
 
-displayCart()
-console.log("Total:", getTotal())
+// Clear cart
+function clearCart() {
+  cart = [];
+}
 
-removeItem("Mouse")
+// Example behavior
+addItem("Apple", 2, 1.5);
+addItem("Orange", 3, 2.0);
 
-displayCart()
-console.log("Total:", getTotal())
+viewCart();
+
+removeItem("Apple");
+
+viewCart();
